@@ -8,7 +8,10 @@ import java.util.UUID;
 public interface ApiEchargeTrackService {
     List<User> listUsers();
 
+
     User obterUserPorId(UUID userId);
+
+    User obterUserPorEmail(String email);
 
     User salvarUser(User user);
 

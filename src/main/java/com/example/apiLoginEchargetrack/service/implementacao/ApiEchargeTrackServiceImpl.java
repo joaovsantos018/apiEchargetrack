@@ -23,6 +23,10 @@ public class ApiEchargeTrackServiceImpl implements ApiEchargeTrackService {
     public User obterUserPorId(UUID userId) {
         return apiEchargeTrackRepository.findById(userId).orElse(null);
     }
+    public User obterUserPorEmail(String email) {
+        return apiEchargeTrackRepository.findByEmail(email);
+    }
+
 
     @Override
     public User salvarUser(User user) {
