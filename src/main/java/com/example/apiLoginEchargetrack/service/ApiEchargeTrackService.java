@@ -1,5 +1,6 @@
 package com.example.apiLoginEchargetrack.service;
 
+import com.example.apiLoginEchargetrack.entity.Charge;
 import com.example.apiLoginEchargetrack.entity.User;
 
 import java.util.List;
@@ -16,4 +17,9 @@ public interface ApiEchargeTrackService {
     User salvarUser(User user);
 
     boolean excluirUser(UUID userId);
+
+    List<Charge> listCharges();
+
+    Charge salvaCharge(Charge charge);
+
 }

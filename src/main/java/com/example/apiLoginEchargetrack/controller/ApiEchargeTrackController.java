@@ -1,5 +1,6 @@
 package com.example.apiLoginEchargetrack.controller;
 
+import com.example.apiLoginEchargetrack.entity.Charge;
 import com.example.apiLoginEchargetrack.entity.User;
 import com.example.apiLoginEchargetrack.service.ApiEchargeTrackService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ public class ApiEchargeTrackController {
     @Autowired
     private ApiEchargeTrackService apiService;
 
+
+
     @PostMapping("/login")
     public User login(@RequestBody User userLogin) {
         User user = apiService.obterUserPorEmail(userLogin.getEmail());
@@ -31,5 +34,10 @@ public class ApiEchargeTrackController {
         @PostMapping
     public User salvaUsuario(@RequestBody User user) {
         return apiService.salvarUser(user);
+    }
+
+    @PostMapping("/newCharge")
+    public Charge createCharge (@RequestBody Charge charge) {
+        return apiService.salvaCharge(charge);
     }
 }

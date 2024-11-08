@@ -1,7 +1,9 @@
 package com.example.apiLoginEchargetrack.service.implementacao;
 
+import com.example.apiLoginEchargetrack.entity.Charge;
 import com.example.apiLoginEchargetrack.entity.User;
 import com.example.apiLoginEchargetrack.repository.ApiEchargeTrackRepository;
+import com.example.apiLoginEchargetrack.repository.ChargeApiRepository;
 import com.example.apiLoginEchargetrack.service.ApiEchargeTrackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,9 @@ public class ApiEchargeTrackServiceImpl implements ApiEchargeTrackService {
 
     @Autowired
     private ApiEchargeTrackRepository apiEchargeTrackRepository;
+
+    @Autowired
+    private ChargeApiRepository chargeApiRepository;
 
     @Override
     public List<User> listUsers() {
@@ -37,5 +42,15 @@ public class ApiEchargeTrackServiceImpl implements ApiEchargeTrackService {
     public boolean excluirUser(UUID userId) {
         apiEchargeTrackRepository.deleteById(userId);
         return true;
+    }
+
+    @Override
+    public List<Charge> listCharges () {
+        return chargeApiRepository.findAll();
+    }
+
+    @Override
+    public Charge salvaCharge(Charge charge) {
+        return chargeApiRepository.save(charge);
     }
 }
