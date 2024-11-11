@@ -45,6 +45,12 @@ public class ApiEchargeTrackServiceImpl implements ApiEchargeTrackService {
     }
 
     @Override
+    public boolean excluirCarga(UUID idCarga) {
+        chargeApiRepository.deleteById(idCarga);
+        return true;
+    }
+
+    @Override
     public List<Charge> listCharges () {
         return chargeApiRepository.findAll();
     }
@@ -53,4 +59,11 @@ public class ApiEchargeTrackServiceImpl implements ApiEchargeTrackService {
     public Charge salvaCharge(Charge charge) {
         return chargeApiRepository.save(charge);
     }
+
+    @Override
+    public Charge atualizaCarga(UUID idCarga, Charge charge) {
+        charge.setIdCarga(idCarga);
+        return chargeApiRepository.save(charge);
+    }
+
 }

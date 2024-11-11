@@ -18,8 +18,12 @@ public interface ApiEchargeTrackService {
 
     boolean excluirUser(UUID userId);
 
+    boolean excluirCarga(UUID idCarga);
+
     List<Charge> listCharges();
 
     Charge salvaCharge(Charge charge);
+
+    Charge atualizaCarga(UUID userId, Charge charge);
 
 }

@@ -40,4 +40,20 @@ public class ApiEchargeTrackController {
     public Charge createCharge (@RequestBody Charge charge) {
         return apiService.salvaCharge(charge);
     }
+
+    @PutMapping("/updateCharge/id={idCarga}")
+    public Charge updateCarga (@PathVariable UUID idCarga, @RequestBody Charge charge) {
+        return apiService.atualizaCarga(idCarga, charge);
+    }
+
+    @GetMapping("/allCharges")
+    public List<Charge> listaTodasCargas () {
+        return apiService.listCharges();
+    }
+
+    @DeleteMapping("/delete/id={idCarga}")
+    public boolean deleteCarga(@PathVariable UUID idCarga) {
+       return apiService.excluirCarga(idCarga);
+    }
+
 }
